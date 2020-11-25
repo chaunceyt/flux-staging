@@ -19,6 +19,7 @@ spec:
       remediateLastFailure: true
   test:
     enable: true
+    ignoreFailures: true
   values:
     service:
       grpcService: backend
