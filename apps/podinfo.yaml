@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: backend
-  namespace: default
+  namespace: staging
 spec:
   interval: 5m
   chart:
@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: podinfo
-        namespace: default
+        namespace: staging
       interval: 1m
   upgrade:
     remediation:
@@ -31,7 +31,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: frontend
-  namespace: default
+  namespace: staging
 spec:
   interval: 5m
   chart:
@@ -41,7 +41,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: podinfo
-        namespace: default
+        namespace: staging
       interval: 1m
   dependsOn:
     - backend
